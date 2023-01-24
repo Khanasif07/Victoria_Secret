@@ -10,9 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    public var window: UIWindow?
+    static var shared: AppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate
+        }
+        fatalError("invalid access of AppDelegate")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame:UIScreen.main.bounds)
+        AppRouter.checkAppInitializationFlow()
         // Override point for customization after application launch.
         return true
     }

@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Victoria_Secret
+
+  Created by Admin on 25/01/23.
+  
+*/
+"pleaseEnterValidEmail"  = "Please Enter Valid Email";
+"pleaseEnterValidPassword" = "Please Enter Valid Password";
+"pleaseEnterEmail" = "Please Enter Email";
+"enterYourEmailId" = "enterYourEmailId";
+"pleaseEnterPassword" = "Please Enter Password";
+"email" = "Email";
+"password" = "Password";
