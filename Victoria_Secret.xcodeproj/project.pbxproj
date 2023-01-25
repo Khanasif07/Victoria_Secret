@@ -114,10 +114,7 @@
 				84596C9829804A8D00A0EC62 /* Model */,
 				84596C8429804A8200A0EC62 /* AppDelegate.swift */,
 				84596C8629804A8200A0EC62 /* SceneDelegate.swift */,
-				84596C8D29804A8400A0EC62 /* Assets.xcassets */,
-				84596C8F29804A8400A0EC62 /* LaunchScreen.storyboard */,
 				84596C9229804A8400A0EC62 /* Info.plist */,
-				84596C9B29804B4500A0EC62 /* NetworkManager.swift */,
 			);
 			path = Victoria_Secret;
 			sourceTree = "<group>";
@@ -136,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				84A906BB29819814009635DD /* XIB's */,
-				84596C8829804A8200A0EC62 /* LoginVC.swift */,
 				84596CB1298066A700A0EC62 /* TabBarController.swift */,
+				84596C8829804A8200A0EC62 /* LoginVC.swift */,
 				84596CB3298067CF00A0EC62 /* ProductsVC.swift */,
 				84596CB5298067E000A0EC62 /* ProfileVC.swift */,
 				84A906B52981236C009635DD /* ProductDetailVC.swift */,
@@ -159,6 +156,7 @@
 		84596C9F298052DB00A0EC62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84596C8D29804A8400A0EC62 /* Assets.xcassets */,
 				84596CA0298052FF00A0EC62 /* LocalizedString */,
 			);
 			path = Resources;
@@ -176,6 +174,7 @@
 		84596CA3298053C600A0EC62 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				84B7B13C2981BCC400EB1EA2 /* Networking */,
 				84596CB729806FFA00A0EC62 /* AppGlobals */,
 				84596CAC29805E9A00A0EC62 /* AppUtilities */,
 				84596CA9298054AC00A0EC62 /* Enums */,
@@ -232,10 +231,19 @@
 		84A906BC29819D9F009635DD /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				84596C8F29804A8400A0EC62 /* LaunchScreen.storyboard */,
 				84B7B13A29819E2B00EB1EA2 /* Dashboard.storyboard */,
 				84596C8A29804A8200A0EC62 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		84B7B13C2981BCC400EB1EA2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				84596C9B29804B4500A0EC62 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

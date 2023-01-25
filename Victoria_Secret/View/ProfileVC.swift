@@ -39,8 +39,6 @@ class ProfileVC: UIViewController {
     }
 
 }
-
-
 //MARK:- Extension TableView Delegate and DataSource
 //==================================================
 extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
@@ -57,5 +55,14 @@ extension ProfileVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.profileData[indexPath.row].0 == "Logout"{
+            showAlert(title: "Logout", msg: "Are you sure want to logout?"){
+                UserDefaults.standard.set(false, forKey: "isLogin")
+                AppRouter.goToLogin(UIApplication.shared.currentWindow!)
+            }
+        }
     }
 }

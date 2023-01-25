@@ -6,17 +6,14 @@
 //
 
 import Foundation
-
 class NetworkManager{
     static let shared = NetworkManager()
-    private init(){
-    }
+    private init(){}
     
     func getDataFromServer<T: Codable>(_ urlString: String,_ completion: @escaping (Result<T,Error>) -> Void){
         guard let url = URL(string: urlString) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error{
                 completion(.failure(error))

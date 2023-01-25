@@ -21,5 +21,6 @@ class ProfileTableViewCell: UITableViewCell {
     func populateCell(_ tuple: (String,String)){
         titleLbl.text = tuple.0
         subTitleLbl.text = tuple.1
+        titleLbl.textColor = tuple.0 == "Logout" ? .red : .black
     }
 }

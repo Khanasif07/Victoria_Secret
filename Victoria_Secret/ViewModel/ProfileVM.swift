@@ -32,6 +32,7 @@ class ProfileVM{
             profileData.append(("Address", profiles.address))
             profileData.append(("Points Earned", profiles.pointsEarned))
             profileData.append(("Wallet Balance", profiles.walletBalance))
+            profileData.append(("Logout", ""))
         }
     }
 }

@@ -21,9 +21,6 @@ extension UIApplication {
                 .compactMap({$0})
                 .first?.windows
                 .filter({$0.isKeyWindow}).first
-        } else {
-            // Fallback on earlier versions
-           return AppDelegate.shared.window
         }
     }
 }

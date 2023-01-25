@@ -9,6 +9,7 @@ import UIKit
 
 class LoginVC: UIViewController {
     //MARK:- IBoutlets
+    @IBOutlet weak var passwordBtn: UIButton!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var subTitleLbl: UILabel!
     @IBOutlet weak var forgotBtn: UIButton!
@@ -35,7 +36,6 @@ class LoginVC: UIViewController {
     
     private func initialSetUp(){
         self.setupFontAndColor()
-        self.signInBtnStatus()
     }
     
     private func setupFontAndColor(){
@@ -43,23 +43,23 @@ class LoginVC: UIViewController {
         titleLbl.font          = UIFont.boldSystemFont(ofSize: 40)
         subTitleLbl.textColor   = UIColor.white
         subTitleLbl.font       = UIFont.boldSystemFont(ofSize: 20)
-        loginBtn.setTitle("Login", for: .normal)
-        forgotBtn.setTitle("Forgot Password?", for: .normal)
+        loginBtn.setTitle("LOG IN", for: .normal)
         [userTxtFld,passTxtFld].forEach({$0?.delegate = self})
-        [userTxtFld,passTxtFld].forEach({$0?.font = UIFont.boldSystemFont(ofSize: 15)})
+        [userTxtFld,passTxtFld].forEach({$0?.textColor = .white})
+        [userTxtFld,passTxtFld].forEach({$0?.font = UIFont.boldSystemFont(ofSize: 16.5)})
         loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.5)
         forgotBtn.setTitleColor(.red, for: .normal)
-        loginBtn.isEnabled = true
+        forgotBtn.setTitle("Forgot Password?", for: .normal)
+        forgotBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13.5)
+        passTxtFld.isSecureTextEntry = true
+        passwordBtn.setImage(UIImage(named: "icPassword"), for: .normal)
+        passwordBtn.setImage(UIImage(named: "icPasswordHide"), for: .selected)
     }
     
-    @discardableResult
-    private func signInBtnStatus()-> Bool{
-        return !self.viewModel.model.email.isEmpty && !self.viewModel.model.password.isEmpty
-    }
     
-    
-    //MARK:- IBActions
+//MARK:- IBActions========================
+//=========================================
     @IBAction func loginBtnAction(_ sender: UIButton) {
         self.view.endEditing(true)
         if self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).status{
@@ -73,9 +73,14 @@ class LoginVC: UIViewController {
         }
     }
     
+    @IBAction func passwordBtnAction(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        passTxtFld.isSecureTextEntry = !sender.isSelected
+    }
+    
     @IBAction func forgotBtnAction(_ sender: UIButton) {
         self.view.endEditing(true)
-        
+        showAlert(msg: "Under Development")
     }
 }
 
@@ -88,10 +93,8 @@ extension LoginVC : UITextFieldDelegate{
         switch textField {
         case userTxtFld:
             self.viewModel.model.email = text
-            loginBtn.isEnabled = signInBtnStatus()
         default:
             self.viewModel.model.password = text
-            loginBtn.isEnabled = signInBtnStatus()
         }
     }
     
@@ -101,10 +104,8 @@ extension LoginVC : UITextFieldDelegate{
             currentString.replacingCharacters(in: range, with: string) as NSString
         switch textField {
         case userTxtFld:
-            loginBtn.isEnabled = signInBtnStatus()
             return (string.checkIfValidCharaters(.email) || string.isEmpty) && newString.length <= 50
         case passTxtFld:
-            loginBtn.isEnabled = signInBtnStatus()
             return (string.checkIfValidCharaters(.password) || string.isEmpty) && newString.length <= 19
         default:
             return false

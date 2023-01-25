@@ -9,40 +9,12 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    // MARK: - IBOutlets
-    //===========================
-    
-    // MARK: - Variables
-    //===========================
-    var bottomSafeArea: CGFloat = 0.0
-    
     // MARK: - Lifecycle
     //===========================
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if #available(iOS 11.0, *) {
-            self.bottomSafeArea = view.safeAreaInsets.bottom
-        } else {
-            self.bottomSafeArea = bottomLayoutGuide.length
-        }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        if #available(iOS 11.0, *) {
-            self.bottomSafeArea = view.safeAreaInsets.bottom
-        } else {
-            self.bottomSafeArea = bottomLayoutGuide.length
-        }
-    }
-    // MARK: - IBActions
-    //===========================
-    
 }
 
 // MARK: - Extension for functions
@@ -58,8 +30,10 @@ extension TabBarController {
             BarButtonItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.backgroundColor = .white
-            tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.red, .font: UIFont.boldSystemFont(ofSize: 15.0)]
-            tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.red, .font: UIFont.boldSystemFont(ofSize: 15.0)]
+            tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.red, .font: UIFont.boldSystemFont(ofSize: 16.5)]
+            tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.red.withAlphaComponent(0.5), .font: UIFont.boldSystemFont(ofSize: 16.5)]
+            tabBarAppearance.stackedLayoutAppearance.selected.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -12.5)
+            tabBarAppearance.stackedLayoutAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -12.5)
             tabBar.standardAppearance = tabBarAppearance
             tabBar.scrollEdgeAppearance = tabBarAppearance
         }
@@ -94,10 +68,10 @@ extension TabBarController {
         }
     }
 }
+
 extension TabBarController: UITabBarControllerDelegate{
-    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
-    
+        
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
