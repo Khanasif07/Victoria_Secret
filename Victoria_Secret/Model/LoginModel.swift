@@ -16,4 +16,9 @@ struct LoginModel{
         self.email = email
         self.password = password
     }
+    
+    var dict: [String:String] {
+        return ["email": self.email,"password": self.password]
+    }
 }
+

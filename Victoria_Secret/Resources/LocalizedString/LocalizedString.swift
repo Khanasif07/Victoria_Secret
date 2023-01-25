@@ -8,8 +8,6 @@
 import Foundation
 enum LocalizedString : String {
     
-    // MARK:- App Title
-    //===================
     case name
     case email
     case password
@@ -17,11 +15,10 @@ enum LocalizedString : String {
     
     // MARK: - Validation Messages
     //==================================
-    case pleaseEnterValidEmail  = "pleaseEnterValidEmail"
-    case pleaseEnterValidPassword = "pleaseEnterValidPassword"
-    case pleaseEnterEmail = "pleaseEnterEmail"
-    case enterYourEmailId = "enterYourEmailId"
-    case pleaseEnterPassword = "pleaseEnterPassword"
+    case pleaseEnterValidEmail  = "Please Enter Valid Email"
+    case pleaseEnterValidPassword = "Please Enter Valid Password"
+    case pleaseEnterEmail = "Please Enter Email"
+    case pleaseEnterPassword = "Please Enter Password"
 }
 
 extension LocalizedString {

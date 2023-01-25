@@ -12,7 +12,6 @@ class ProductsVC: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     private var viewModel = ProductsVM()
     
-    
     //MARK:- ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +59,11 @@ extension ProductsVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as? ProductTableViewCell else { return UITableViewCell()}
-        cell.populateCell(viewModel.listing[indexPath.row])
+        cell.populateCell(viewModel.listing[indexPath.row],indexPath.row == 1)
+        cell.rewardBtnAction = { [weak self] in
+            guard let `self` = self else {return}
+            self.showAlert(msg: "Thank you for joining our rewards program")
+        }
         return cell
     }
     
@@ -70,7 +73,7 @@ extension ProductsVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productDetailVC = ProductDetailVC.instantiate(fromAppStoryboard: .Dashboard)
-        productDetailVC.setUpViewModel(viewModel.productListing[indexPath.row])
+        productDetailVC.setUpViewModel(viewModel.listing[indexPath.row])
         self.navigationController?.pushViewController(productDetailVC, animated: true)
     }
 }

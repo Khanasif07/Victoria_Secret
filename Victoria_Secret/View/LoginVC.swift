@@ -29,6 +29,10 @@ class LoginVC: UIViewController {
         loginBtn.layer.cornerRadius = 5.0
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private func initialSetUp(){
         self.setupFontAndColor()
         self.signInBtnStatus()
@@ -58,14 +62,13 @@ class LoginVC: UIViewController {
     //MARK:- IBActions
     @IBAction func loginBtnAction(_ sender: UIButton) {
         self.view.endEditing(true)
-        let dict = ["email": self.viewModel.model.email,"password": self.viewModel.model.password]
-        if self.viewModel.checkSignInValidations(parameters: dict).status{
-            self.viewModel.signIn(dict)
+        if self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).status{
+            self.viewModel.signIn(self.viewModel.model.dict)
             UserDefaults.standard.set(true, forKey: "isLogin")
             AppRouter.goToDashboard(UIApplication.shared.windows.first!)
         }else{
-            if !self.viewModel.checkSignInValidations(parameters: dict).message.isEmpty{
-                self.showAlert(msg: self.viewModel.checkSignInValidations(parameters: dict).message)
+            if !self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).message.isEmpty{
+                self.showAlert(msg: self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).message)
             }
         }
     }
@@ -98,11 +101,18 @@ extension LoginVC : UITextFieldDelegate{
             currentString.replacingCharacters(in: range, with: string) as NSString
         switch textField {
         case userTxtFld:
+            loginBtn.isEnabled = signInBtnStatus()
             return (string.checkIfValidCharaters(.email) || string.isEmpty) && newString.length <= 50
         case passTxtFld:
+            loginBtn.isEnabled = signInBtnStatus()
             return (string.checkIfValidCharaters(.password) || string.isEmpty) && newString.length <= 19
         default:
             return false
         }
+    }
+    
+     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
