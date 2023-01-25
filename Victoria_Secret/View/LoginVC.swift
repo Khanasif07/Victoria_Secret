@@ -62,7 +62,7 @@ class LoginVC: UIViewController {
         if self.viewModel.checkSignInValidations(parameters: dict).status{
             self.viewModel.signIn(dict)
             UserDefaults.standard.set(true, forKey: "isLogin")
-            AppRouter.goToDashboard()
+            AppRouter.goToDashboard(UIApplication.shared.windows.first!)
         }else{
             if !self.viewModel.checkSignInValidations(parameters: dict).message.isEmpty{
                 self.showAlert(msg: self.viewModel.checkSignInValidations(parameters: dict).message)

@@ -9,33 +9,29 @@ import Foundation
 import UIKit
 
 enum AppRouter {
-    static func checkAppInitializationFlow() {
+    static func checkAppInitializationFlow(_ window: UIWindow) {
         if isUserLoggedin {
-            self.goToDashboard()
+            self.goToDashboard(window)
         } else {
-            self.goToLogin()
+            self.goToLogin(window)
         }
     }
-    static func goToDashboard() {
+    static func goToDashboard(_ window: UIWindow) {
         let homeScene = TabBarController.instantiate(fromAppStoryboard: .Dashboard)
-        setAsWindowRoot(homeScene)
+        setAsWindowRoot(homeScene,window)
     }
     
-    static func goToLogin(){
+    static func goToLogin(_ window: UIWindow){
         let scene = LoginVC.instantiate(fromAppStoryboard: .Main)
-        setAsWindowRoot(scene)
+        setAsWindowRoot(scene,window)
     }
     
     // MARK: - General Method to set Root VC
     //=========================================
-    static func setAsWindowRoot(_ viewController: UIViewController) {
+    static func setAsWindowRoot(_ viewController: UIViewController,_ window: UIWindow) {
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.setNavigationBarHidden(true, animated: true)
-        UIView.transition(with: AppDelegate.shared.window!, duration: 0.33, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
-            AppDelegate.shared.window?.rootViewController = navigationController
-        }, completion: nil)
-        AppDelegate.shared.window?.becomeKey()
-        AppDelegate.shared.window?.makeKeyAndVisible()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 }
 

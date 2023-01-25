@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum EndPoint: String{
-    case products
-    case flights
-}
-
 class NetworkManager{
     static let shared = NetworkManager()
     private init(){
