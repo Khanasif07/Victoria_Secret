@@ -62,14 +62,11 @@ class LoginVC: UIViewController {
 //=========================================
     @IBAction func loginBtnAction(_ sender: UIButton) {
         self.view.endEditing(true)
-        if self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).status{
-            self.viewModel.signIn(self.viewModel.model.dict)
+        if self.viewModel.authenticateUser().isValid{
             UserDefaults.standard.set(true, forKey: "isLogin")
-            AppRouter.goToDashboard(UIApplication.shared.windows.first!)
+            AppRouter.goToDashboard(UIApplication.shared.currentWindow!)
         }else{
-            if !self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).message.isEmpty{
-                self.showAlert(msg: self.viewModel.checkSignInValidations(parameters: self.viewModel.model.dict).message)
-            }
+            showAlert(msg: self.viewModel.authenticateUser().message ?? "")
         }
     }
     

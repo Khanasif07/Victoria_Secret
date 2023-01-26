@@ -8,15 +8,15 @@
 import UIKit
 
 class ProductDetailVC: UIViewController {
-
+    //MARK:- IBoutlets
     @IBOutlet weak var productOffPriceLbl: UILabel!
     @IBOutlet weak var productPriceLbl: UILabel!
     @IBOutlet weak var productSubTitleLbl: UILabel!
     @IBOutlet weak var productTitleLbl: UILabel!
     @IBOutlet weak var productImgView: UIImageView!
-    
     private var viewModel : ProductDetailVM?
     
+    //MARK:- ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialSetUp()
