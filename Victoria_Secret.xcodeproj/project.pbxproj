@@ -38,10 +38,11 @@
 		84A906B829812E03009635DD /* ProductDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A906B729812E03009635DD /* ProductDetailVM.swift */; };
 		84A906BA2981341C009635DD /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A906B92981341C009635DD /* TableViewExtension.swift */; };
 		84B7B13B29819E2B00EB1EA2 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B7B13A29819E2B00EB1EA2 /* Dashboard.storyboard */; };
-		84B7B1442982547E00EB1EA2 /* Victoria_SecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B1432982547E00EB1EA2 /* Victoria_SecretTests.swift */; };
 		84B7B14C298256BF00EB1EA2 /* LoginValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B14B298256BF00EB1EA2 /* LoginValidation.swift */; };
 		84B7B14E2982573600EB1EA2 /* ValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B14D2982573600EB1EA2 /* ValidationResponse.swift */; };
 		84B7B15029825B4C00EB1EA2 /* LoginValidationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B14F29825B4C00EB1EA2 /* LoginValidationUnitTests.swift */; };
+		84B7B1522982703C00EB1EA2 /* ProductsApiUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B1512982703C00EB1EA2 /* ProductsApiUnitTests.swift */; };
+		84B7B1542982767D00EB1EA2 /* ProfileUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B7B1532982767D00EB1EA2 /* ProfileUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,10 +90,11 @@
 		84A906B92981341C009635DD /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		84B7B13A29819E2B00EB1EA2 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dashboard.storyboard; path = ../../../Dashboard.storyboard; sourceTree = "<group>"; };
 		84B7B1412982547E00EB1EA2 /* Victoria_SecretTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Victoria_SecretTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B7B1432982547E00EB1EA2 /* Victoria_SecretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Victoria_SecretTests.swift; sourceTree = "<group>"; };
 		84B7B14B298256BF00EB1EA2 /* LoginValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidation.swift; sourceTree = "<group>"; };
 		84B7B14D2982573600EB1EA2 /* ValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResponse.swift; sourceTree = "<group>"; };
 		84B7B14F29825B4C00EB1EA2 /* LoginValidationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationUnitTests.swift; sourceTree = "<group>"; };
+		84B7B1512982703C00EB1EA2 /* ProductsApiUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsApiUnitTests.swift; sourceTree = "<group>"; };
+		84B7B1532982767D00EB1EA2 /* ProfileUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUnitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,8 +280,9 @@
 		84B7B1422982547E00EB1EA2 /* Victoria_SecretTests */ = {
 			isa = PBXGroup;
 			children = (
-				84B7B1432982547E00EB1EA2 /* Victoria_SecretTests.swift */,
 				84B7B14F29825B4C00EB1EA2 /* LoginValidationUnitTests.swift */,
+				84B7B1512982703C00EB1EA2 /* ProductsApiUnitTests.swift */,
+				84B7B1532982767D00EB1EA2 /* ProfileUnitTests.swift */,
 			);
 			path = Victoria_SecretTests;
 			sourceTree = "<group>";
@@ -432,7 +435,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B7B15029825B4C00EB1EA2 /* LoginValidationUnitTests.swift in Sources */,
-				84B7B1442982547E00EB1EA2 /* Victoria_SecretTests.swift in Sources */,
+				84B7B1542982767D00EB1EA2 /* ProfileUnitTests.swift in Sources */,
+				84B7B1522982703C00EB1EA2 /* ProductsApiUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
