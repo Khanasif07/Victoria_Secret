@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class LoginVC: UIViewController {
     //MARK:- IBoutlets
     @IBOutlet weak var passwordBtn: UIButton!
